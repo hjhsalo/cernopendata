@@ -89,6 +89,10 @@ if [ -v ${INVENIO_WORKER_HOST} ]; then
     exit 1
 fi
 
+if [ -z "$DEBUG" ]; then
+    DEBUG=0
+fi
+
 # load virtualenvrapper:
 source $(which virtualenvwrapper.sh)
 
@@ -105,6 +109,10 @@ set -o errexit
 
 # install CERN Open Data instance packages:
 pip install -e .[all]
+
+if [ "$DEBUG" == 1 ]; then
+    pip install -r "$scriptpathname/../requirements-extra.txt"
+fi
 
 # sphinxdoc-customise-instance-begin
 cdvirtualenv

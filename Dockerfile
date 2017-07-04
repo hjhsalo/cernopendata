@@ -25,6 +25,9 @@
 # Use Python-2.7:
 FROM python:2.7-slim
 
+# Args coming from docker-compose
+ARG DEBUG
+
 COPY scripts/provision-web.sh /tmp/
 
 # Install CERN Open Data Portal web node pre-requisites:
@@ -54,6 +57,7 @@ ENV INVENIO_REDIS_HOST=redis
 ENV INVENIO_ELASTICSEARCH_HOST=elasticsearch
 ENV INVENIO_RABBITMQ_HOST=rabbitmq
 ENV INVENIO_WORKER_HOST=127.0.0.1
+ENV FLASK_DEBUG=$DEBUG
 
 # Create CERN Open Data Portal instance:
 RUN /code/scripts/create-instance.sh
