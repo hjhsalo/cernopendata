@@ -43,7 +43,7 @@ services:
       APP_CELERY_RESULT_BACKEND: "redis://redis:6379/2"
       APP_SEARCH_ELASTIC_HOSTS: "elasticsearch"
     volumes:
-      - ./modules:/modules
+      - ./devmodules:/devmodules
       - ./cernopendata:/code/cernopendata/cernopendata
       - static:/home/invenio/.virtualenvs/cernopendata/var/cernopendata-instance/static
     links:
@@ -53,7 +53,7 @@ services:
       - rabbitmq
     ports:
       - "5000:5000"
-#    working_dir: "/modules"
+#    working_dir: "/devmodules"
 
   worker:
     restart: "always"
@@ -73,7 +73,7 @@ services:
       APP_CELERY_RESULT_BACKEND: "redis://redis:6379/2"
       APP_SEARCH_ELASTIC_HOSTS: "elasticsearch"
     volumes:
-      - ./modules:/modules
+      - ./devmodules:/devmodules
       - ./cernopendata:/code/cernopendata
       - static:/home/invenio/.virtualenvs/cernopendata/var/cernopendata-instance/static
     links:

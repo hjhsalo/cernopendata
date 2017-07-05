@@ -22,8 +22,5 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-flask-shell-ipython
-git+https://github.com/remileduc/invenio-flaskdebugtoolbar.git#egg=invenio-flaskdebugtoolbar
--e file:///code/modules/cernopendata-theme#egg=cernopendata-theme
--e file:///code/modules/cernopendata-pages#egg=cernopendata-pages
--e --follow-links file:///code/modules
+-e file:///code/devmodules/cernopendata-pages
+-e file:///code/devmodules/cernopendata-theme
